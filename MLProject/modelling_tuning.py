@@ -29,7 +29,7 @@ mlflow.set_experiment("Modelling Weather Prediction Tuning")
 mlflow.sklearn.autolog()
 
 # Load dataset
-df = pd.read_csv(r"D:\ANUGRAH\2026\Continuous Learning\Dicoding\IDCamp2025\MSML\weather_preprocessing.csv", sep = ",")
+df = pd.read_csv(r"weather_preprocessing.csv", sep = ",")
 
 X = df.drop(columns=["rain_next_6h"])
 y = df["rain_next_6h"]
