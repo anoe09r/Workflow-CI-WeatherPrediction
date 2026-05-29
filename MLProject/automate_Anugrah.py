@@ -31,4 +31,4 @@ X_scaled = scaler.fit_transform(X)
 processed_data = pd.DataFrame(X_scaled, columns=X.columns)
 processed_data["rain_next_6h"] = y.values
 
-processed_data.to_csv("preprocessing/weather_preprocessing.csv", index=False)
+processed_data.to_csv("MLProject/weather_preprocessing.csv", index=False)
