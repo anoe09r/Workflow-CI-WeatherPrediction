@@ -20,8 +20,7 @@ from sklearn.model_selection import cross_val_score, train_test_split
 
 import optuna # Import Optuna untuk hyperparameter tuning
 
-
-mlflow.set_tracking_uri("http://127.0.0.1:5000/")
+mlflow.set_tracking_uri(os.environ["MLFLOW_TRACKING_URI"])
 
 # Create a new MLflow Experiment
 mlflow.set_experiment("Modelling Weather Prediction Tuning")
