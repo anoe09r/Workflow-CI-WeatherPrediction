@@ -1,0 +1,12 @@
+Laporan Klasifikasi Hasil Optuna Tuning:
+
+Parameter Terbaik: {'n_estimators': 171, 'max_depth': 17, 'min_samples_split': 9}
+
+              precision    recall  f1-score   support
+
+           0       0.99      0.97      0.98     18258
+           1       0.98      0.99      0.98     21104
+
+    accuracy                           0.98     39362
+   macro avg       0.98      0.98      0.98     39362
+weighted avg       0.98      0.98      0.98     39362
