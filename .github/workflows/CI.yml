@@ -46,7 +46,7 @@ jobs:
           pip install mlflow dagshub
 
       # =====================================
-      # Run Training
+      # 4. Run Training
       # =====================================
       - name: Run Training Script
         run: |
@@ -56,14 +56,20 @@ jobs:
       # =========================
       # 5. Get Run ID
       # =========================
-      - name: Get MLflow Run ID
+      - name: Run MLflow Project
         run: |
           cd MLProject
-          RUN_ID=$(cat run_id.txt)
+          mlflow run . --env-manager=local
 
-          echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
+      - name: Get Run ID
+        run: |
+          cd MLProject
 
-          echo "Run ID: $RUN_ID"
+          if [ -f run_id.txt ]; then
+            RUN_ID=$(cat run_id.txt)
+            echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
+            echo "Run ID: $RUN_ID"
+          fi
 
       # =========================
       # 6. Upload Model Artifact
@@ -71,8 +77,8 @@ jobs:
       - name: Upload Model Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: weather-prediction-model
-          path: MLProject/saved_model/
+          name: best-tuning-model
+          path: MLProject/best_tuning_model/
 
       # =========================
       # 7. Commit Processed Dataset
