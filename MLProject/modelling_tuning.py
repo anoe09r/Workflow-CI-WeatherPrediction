@@ -25,8 +25,6 @@ mlflow.set_tracking_uri(os.environ["MLFLOW_TRACKING_URI"])
 # Create a new MLflow Experiment
 mlflow.set_experiment("Modelling Weather Prediction Tuning")
 
-mlflow.sklearn.autolog()
-
 # Load dataset
 df = pd.read_csv(r"weather_preprocessing.csv", sep = ",")
 
