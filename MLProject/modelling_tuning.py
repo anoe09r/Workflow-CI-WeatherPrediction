@@ -32,7 +32,7 @@ X = df.drop(columns=["rain_next_6h"])
 y = df["rain_next_6h"]
 
 x_train, x_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=69420
+    X, y, test_size=0.2, random_state=42
 )
 input_example = x_train[0:5]
 
