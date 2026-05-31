@@ -13,8 +13,8 @@ flavors:
     serialization_format: cloudpickle
     sklearn_version: 1.8.0
 mlflow_version: 2.19.0
-model_size_bytes: 18327602
-model_uuid: d0700b0d5b844175bcc029efdc1583ab
+model_size_bytes: 18096646
+model_uuid: 0c64bb31040c4ff8af3c7360dff0fc1b
 saved_input_example_info:
   artifact_path: input_example.json
   pandas_orient: split
@@ -32,4 +32,4 @@ signature:
     true}]'
   outputs: '[{"type": "long", "required": true}]'
   params: null
-utc_time_created: '2026-05-31 13:54:45.319919'
+utc_time_created: '2026-05-31 14:01:03.336363'
