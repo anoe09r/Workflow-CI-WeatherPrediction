@@ -51,7 +51,12 @@ def objective(trial):
     score = cross_val_score(model, x_train, y_train, n_jobs=-1, cv=3)
     return score.mean()
 
-with mlflow.start_run(run_name="Tuning_RandomForest_with_Optuna", nested=False) as run:
+if mlflow.active_run():
+    mlflow.end_run()
+
+os.environ.pop("MLFLOW_RUN_ID", None)
+
+with mlflow.start_run(run_name="Tuning_RandomForest_with_Optuna") as run:
     print("Memulai Hyperparameter Tuning dengan Optuna...")
     study = optuna.create_study(direction="maximize")
 
