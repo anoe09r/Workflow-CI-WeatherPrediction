@@ -17,7 +17,7 @@ from sklearn.metrics import (
     recall_score,
 )
 from sklearn.model_selection import cross_val_score, train_test_split
-
+import shutil
 import optuna # Import Optuna untuk hyperparameter tuning
 
 mlflow.set_tracking_uri(os.environ["MLFLOW_TRACKING_URI"])
@@ -82,6 +82,9 @@ with mlflow.start_run(run_name="Tuning_RandomForest_with_Optuna", nested=False) 
 
     mlflow.sklearn.log_model(sk_model=best_model, artifact_path="best_tuning_model")
 
+    if os.path.exists("best_tuning_model"):
+        shutil.rmtree("best_tuning_model")
+    
     mlflow.sklearn.save_model(
         best_model,
         "best_tuning_model",
