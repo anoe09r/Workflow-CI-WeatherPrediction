@@ -79,7 +79,14 @@ jobs:
           echo "Successfully fetched Run ID: $RUN_ID for DagsHub retrieval."
 
       # =========================
-      # 7. Upload Model Artifact
+      # 7. Install Python dependencies
+      # =========================
+      - name: Install Python dependencies
+        run: |
+          echo "Dependensi tambahan sudah terinstall."
+          
+      # =========================
+      # 8. Upload Model Artifact
       # =========================
       - name: Upload to Github LFS
         uses: actions/upload-artifact@v7
@@ -88,7 +95,7 @@ jobs:
           path: MLProject/saved_model/
 
       # =========================
-      # 8. Commit Processed Dataset
+      # 9. Commit Processed Dataset
       # =========================
       - name: Debug MLflow artifacts
         run: |
@@ -99,7 +106,7 @@ jobs:
           mlflow artifacts list -r $RUN_ID
           
       # =========================
-      # 9. Commit Processed Dataset
+      # 10. Commit Processed Dataset
       # =========================
       - name: Commit Processed Dataset
         run: |
